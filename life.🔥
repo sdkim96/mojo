@@ -1,14 +1,13 @@
-trait Quackable:
-    fn quack(self) -> String: ...
-
-trait Flyable:
-    fn fly(self) -> String: ...
-
+from traits import Quackable, Flyable
 
 @value
 struct FlyingDuck(Quackable, Flyable):
+
     var name: String
     var age: Int
+
+    fn move(self) -> String:
+        return "I'm walking!"
 
     fn quack(self) -> String:
         return "Quack!"
@@ -22,6 +21,7 @@ def main():
 
     var quack = duck.quack()
     var fly = duck.fly()
+    
 
     print(quack)
     print(fly)
